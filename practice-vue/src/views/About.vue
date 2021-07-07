@@ -19,12 +19,12 @@ import { Component, Vue, Watch } from "vue-property-decorator";
 })
 export default class About extends Vue {
   @Watch("firstName")
-  private watchFirstName(val: any) {
+  private watchFirstName(val: string) {
     this.fullName = val + " " + this.lastName;
   }
 
   @Watch("lastName")
-  private watchLastName(val: any) {
+  private watchLastName(val: string) {
     this.fullName = this.firstName + " " + val;
   }
 
