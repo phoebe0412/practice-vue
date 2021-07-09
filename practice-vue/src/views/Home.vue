@@ -1,17 +1,19 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="hello Phoebe" @on-click="onChildClick">
-      <template v-slot:header>
-        <h1>Here might be a page title</h1>
-      </template>
-      <template v-slot:default="{ data }">
-        <p>{{ data.fireName }}</p>
-      </template>
-      <template v-slot:footer>
-        <p>Here's some contact.</p>
-      </template>
-    </HelloWorld>
+  <div>
+    <el-main class="home">
+      <img alt="Vue logo" src="../assets/logo.png" />
+      <HelloWorld msg="hello Phoebe" @on-click="onChildClick">
+        <template v-slot:header>
+          <h1>Here might be a page title</h1>
+        </template>
+        <template v-slot:default="{ data }">
+          <p>{{ data.fireName }}</p>
+        </template>
+        <template v-slot:footer>
+          <p>Here's some contact.</p>
+        </template>
+      </HelloWorld>
+    </el-main>
   </div>
 </template>
 
