@@ -1,20 +1,46 @@
 <template>
   <div class="promise">
     <h2>Promise</h2>
-    <el-button @click="buttonPush">點我檢查驗證</el-button>
-    <p>{{ getText }}</p>
-    <!-- age -->
-    <el-form>
-      <el-form-item label="請輸入年齡">
-        <el-input placeholder="請輸入年齡" type="text" v-model="myAge.age" />
-      </el-form-item>
-      <el-button @click="sumitAge">確認</el-button>
-    </el-form>
+    <el-row>
+      <el-col>
+        <el-button type="primary" @click="buttonPush">點我檢查驗證</el-button>
+        <p>{{ getText }}</p>
+      </el-col>
+      <!-- age -->
+      <el-col>
+        <el-form>
+          <el-form-item label="請輸入年齡">
+            <el-input placeholder="請輸入年齡" type="text" v-model="myAge.age" />
+          </el-form-item>
+          <el-button type="primary" @click="sumitAge">確認</el-button>
+        </el-form>
+      </el-col>
+      <!-- mom -->
+      <el-col>
+        <el-form>
+          <el-form-item>
+            <el-radio v-model="isMomHappy" :label="true" border
+              >Mom is happy</el-radio
+            >
+            <el-radio v-model="isMomHappy" :label="false" border
+              >Mom is unhappy</el-radio
+            >
+          </el-form-item>
+          <el-button type="primary" @click="askMom">ask mom</el-button>
+        </el-form>
+      </el-col>
+    </el-row>
   </div>
 </template>
 <script lang="ts">
-type ageType = {
+type AgeType = {
   age: number | undefined;
+};
+
+type MyPhone = {
+  brand: string;
+  color: string;
+  type: string;
 };
 
 import { Component, Vue } from "vue-property-decorator";
@@ -26,8 +52,7 @@ export default class PromisePage extends Vue {
   private getText = "";
 
   /** Promise age*/
-
-  private myAge: ageType = {
+  private myAge: AgeType = {
     age: undefined,
   };
 
@@ -99,5 +124,31 @@ export default class PromisePage extends Vue {
       });
   }
 
+  /** Mom */
+  private isMomHappy = false;
+
+  private phone: MyPhone = {
+    brand: "Apple",
+    color: "black",
+    type: "iphone 11",
+  };
+
+  private willGetNewPhone(val: boolean) {
+    return new Promise((resolve, reject) => {
+      if (val) {
+        let reason = `Hey friend, I have a new ${this.phone.color}${this.phone.brand} phone ${this.phone.type}`;
+        resolve(reason);
+      } else {
+        let reason = "Mom is unhappy";
+        reject(reason);
+      }
+    });
+  }
+
+  private askMom() {
+    this.willGetNewPhone(this.isMomHappy)
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  }
 }
 </script>
