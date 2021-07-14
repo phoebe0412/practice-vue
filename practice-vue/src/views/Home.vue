@@ -4,7 +4,7 @@
       <img alt="Vue logo" src="../assets/logo.png" />
       <HelloWorld msg="hello Phoebe" @on-click="onChildClick">
         <template v-slot:header>
-          <h1>Here might be a page title</h1>
+          <h3>Here might be a page title</h3>
         </template>
         <template v-slot:default="{ data }">
           <p>{{ data.fireName }}</p>

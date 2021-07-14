@@ -9,15 +9,20 @@
       <!-- age -->
       <el-col>
         <el-form>
-          <el-form-item label="請輸入年齡">
-            <el-input placeholder="請輸入年齡" type="text" v-model="myAge.age" />
+          <el-form-item label="How old are you?">
+            <el-input
+              placeholder="please enter age"
+              type="text"
+              v-model="myAge.age"
+            />
           </el-form-item>
-          <el-button type="primary" @click="sumitAge">確認</el-button>
+          <el-button type="primary" @click="sumitAge">suimt</el-button>
         </el-form>
       </el-col>
       <!-- mom -->
       <el-col>
         <el-form>
+          <h5>What is Mom mood?</h5>
           <el-form-item>
             <el-radio v-model="isMomHappy" :label="true" border
               >Mom is happy</el-radio
@@ -136,7 +141,7 @@ export default class PromisePage extends Vue {
   private willGetNewPhone(val: boolean) {
     return new Promise((resolve, reject) => {
       if (val) {
-        let reason = `Hey friend, I have a new ${this.phone.color}${this.phone.brand} phone ${this.phone.type}`;
+        let reason = `I have a new ${this.phone.color}${this.phone.brand} phone ${this.phone.type}`;
         resolve(reason);
       } else {
         let reason = "Mom is unhappy";

@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>父組建傳值{{ msg }}</h1>
-    <button @click="onClick">點我向父組建傳值</button>
+    <el-button @click="onClick">點我向父組建傳值</el-button>
     <header>
       <slot name="header"></slot>
     </header>
@@ -70,6 +70,28 @@ export default class HelloWorld extends Vue {
     age: 28,
   };
 
+  private createArray<T>(length: number, val: T): Array<T> {
+    let result: T[] = [];
+    for (let i = 0; i < length; i++) {
+      result[i] = val;
+    }
+    return result;
+  }
+
+  /** */
+
+  private stringFun(): string {
+    return "Hello Phoebe";
+  }
+
+  private numberFun(): number {
+    return 19810412;
+  }
+
+  private resultSrtNum<T>(fun: T): T {
+    return fun;
+  }
+
   created(): void {
     this.newArr();
     console.log(this.numberPuls(7653, 986565));
@@ -77,6 +99,9 @@ export default class HelloWorld extends Vue {
     console.log(this.identity<string>("phoebe"));
     console.log(this.identity<number>(1234567));
     console.log(this.isPerson({ fireName: "phoebe", age: 28 }));
+    console.log(this.createArray(3, "kona"));
+    console.log(this.resultSrtNum(this.stringFun()));
+    console.log(this.resultSrtNum(this.numberFun()));
   }
 }
 </script>
