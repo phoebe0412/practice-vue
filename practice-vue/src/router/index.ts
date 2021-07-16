@@ -16,18 +16,27 @@ export const routes: Array<RouteConfig> = [
         name: "Home",
         component: () =>
           import(/* webpackChunkName: "about" */ "../views/Home.vue"),
+        meta: {
+          active: "dashboard",
+        },
       },
       {
         path: "/About/:userId",
         name: "About",
         component: () =>
           import(/* webpackChunkName: "about" */ "../views/About.vue"),
+        meta: {
+          active: "dashboard",
+        },
       },
       {
         path: "/PromisePage",
         name: "PromisePage",
         component: () =>
           import(/* webpackChunkName: "about" */ "../views/PromisePage.vue"),
+        meta: {
+          active: "dashboard",
+        },
       },
     ],
   },
@@ -36,5 +45,6 @@ export const routes: Array<RouteConfig> = [
 const router = new VueRouter({
   routes: routes,
 });
+
 
 export default router;

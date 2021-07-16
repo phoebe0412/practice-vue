@@ -1,6 +1,6 @@
 <template>
-  <el-header>
-    <router-link to="/">Home</router-link>
+  <el-header class="header-nav">
+    <router-link to="/">Vue</router-link>
   </el-header>
 </template>
 

@@ -11,13 +11,6 @@
     <footer>
       <slot name="footer"></slot>
     </footer>
-    <!-- <button @click="count++">You clicked me {{ count }} times.</button> -->
-    <!-- <h3>{{ title }}</h3> -->
-    <br />
-    <!-- <input
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
-    /> -->
   </div>
 </template>
 <script lang="ts">
