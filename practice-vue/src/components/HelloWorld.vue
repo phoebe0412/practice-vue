@@ -11,29 +11,45 @@
     <footer>
       <slot name="footer"></slot>
     </footer>
+    <!-- <button @click="count++">You clicked me {{ count }} times.</button> -->
+    <!-- <h3>{{ title }}</h3> -->
+    <br />
+    <!-- <input
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+    /> -->
   </div>
 </template>
 <script lang="ts">
-interface Point {
-  x: number;
-  y: number;
-}
-
-type Person = {
-  fireName: string;
-  age: number;
-  gender?: string | undefined;
-};
 
 import { Component, Emit, Prop, Vue } from "vue-property-decorator";
+import { Car } from "../utils/classes";
+import { Person } from "../utils/types";
+import { Point } from "../utils/interface";
+
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
   private clickCount = 0;
-  @Emit()
+
+  @Emit("onChildClick")
   private onClick() {
     this.clickCount += 1;
     return this.clickCount;
+  }
+
+  private moreCar() {
+    const redCar = new Car("red", "BMW");
+    const buleCar = new Car("bule", "toyota");
+    const cars: Car[] = [];
+
+    cars.push(redCar);
+    cars.push(buleCar);
+    console.log("cars", cars);
+
+    const carList = cars.forEach((item) => {
+      console.log(item.color, item.brand, item.getDescription());
+    });
   }
 
   private arr: number[] = [23, 12, 180, 2, 45];
@@ -95,6 +111,7 @@ export default class HelloWorld extends Vue {
     console.log(this.createArray(3, "kona"));
     console.log(this.resultSrtNum(this.stringFun()));
     console.log(this.resultSrtNum(this.numberFun()));
+    console.log("moreCar", this.moreCar()); // typescript class
   }
 }
 </script>

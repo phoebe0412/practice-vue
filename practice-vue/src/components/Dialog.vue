@@ -25,6 +25,7 @@ export default class Dialog extends Vue {
   @Watch("dialogVisible")
   private watchDialog(newVal: any) {
     if (newVal) {
+      console.log("newVal", newVal)
       this.isShowDialog = newVal;
     }
   }
