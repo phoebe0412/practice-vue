@@ -23,9 +23,10 @@ export default class Dialog extends Vue {
     this.isShowDialog = false;
   }
   @Watch("dialogVisible")
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private watchDialog(newVal: any) {
     if (newVal) {
-      console.log("newVal", newVal)
+      console.log("newVal", newVal);
       this.isShowDialog = newVal;
     }
   }

@@ -21,7 +21,6 @@
   </div>
 </template>
 <script lang="ts">
-
 import { Component, Emit, Prop, Vue } from "vue-property-decorator";
 import { Car } from "../utils/classes";
 import { Person } from "../utils/types";
@@ -47,6 +46,7 @@ export default class HelloWorld extends Vue {
     cars.push(buleCar);
     console.log("cars", cars);
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const carList = cars.forEach((item) => {
       console.log(item.color, item.brand, item.getDescription());
     });

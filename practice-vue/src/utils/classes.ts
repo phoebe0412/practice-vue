@@ -11,6 +11,7 @@ export class Car implements carFormatter {
     this.brand = brand;
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   getDescription() {
     return `${this.descroption} - ${this.brand} - ${this.color}`;
   }

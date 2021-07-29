@@ -6,7 +6,7 @@
     <h2>@Watch</h2>
     <el-form inline>
       <el-form-item label="姓：">
-        <el-input type="text" v-model="firstName" @change="changeHandler"/>
+        <el-input type="text" v-model="firstName" @change="changeHandler" />
       </el-form-item>
       <el-form-item label="名：">
         <el-input type="text" v-model="lastName" />
@@ -71,7 +71,8 @@ export default class About extends Vue {
     return this.$route.params.userId;
   }
 
-  private changeHandler(val: any){
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private changeHandler(val: any) {
     console.log("change val", val);
   }
 
@@ -136,6 +137,7 @@ export default class About extends Vue {
     }, 1000);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private formatTime(time: any): string {
     const minutes = Math.floor(time / 60);
     let seconds = time % 60;

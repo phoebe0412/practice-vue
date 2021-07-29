@@ -12,7 +12,11 @@
           <p>Here's some contact.</p>
         </template>
       </HelloWorld>
-      <Dialog @submit="submitDialog" :dialogVisible="dialogVisible" :width="width[0]">
+      <Dialog
+        @submit="submitDialog"
+        :dialogVisible="dialogVisible"
+        :width="width[0]"
+      >
         <template v-slot:title>
           <h3>提示</h3>
         </template>

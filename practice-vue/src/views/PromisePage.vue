@@ -100,6 +100,7 @@ export default class PromisePage extends Vue {
   };
 
   private checkAuth = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     return new Promise((resolve, reject) => {
       this.setText("Checking Auth...");
       setTimeout(() => {
@@ -109,6 +110,7 @@ export default class PromisePage extends Vue {
   };
 
   private fetchUser = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     return new Promise((resolve, reject) => {
       this.setText("Fetching User...");
       setTimeout(() => {
@@ -124,6 +126,7 @@ export default class PromisePage extends Vue {
           return this.fetchUser();
         }
       })
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .then((user) => {
         this.setText(this.user.name);
       });
