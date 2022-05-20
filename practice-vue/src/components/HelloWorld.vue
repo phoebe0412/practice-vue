@@ -24,7 +24,7 @@
 import { Component, Emit, Prop, Vue } from "vue-property-decorator";
 import { Car } from "../utils/classes";
 import { Person } from "../utils/types";
-import { Point } from "../utils/interface";
+import { Point, adminList, AdimnAge } from "../utils/interface";
 
 @Component
 export default class HelloWorld extends Vue {
@@ -101,6 +101,12 @@ export default class HelloWorld extends Vue {
     return fun;
   }
 
+  private getAdminList: adminList<string[]> = {
+    name: "phoebe",
+    age: AdimnAge.teenager,
+    hobby: ["hiking", "swimming"],
+  };
+
   created(): void {
     this.newArr();
     console.log(this.numberPuls(7653, 986565));
@@ -112,6 +118,7 @@ export default class HelloWorld extends Vue {
     console.log(this.resultSrtNum(this.stringFun()));
     console.log(this.resultSrtNum(this.numberFun()));
     console.log("moreCar", this.moreCar()); // typescript class
+    console.log(this.getAdminList);
   }
 }
 </script>
