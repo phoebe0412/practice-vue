@@ -2,10 +2,6 @@
   <div class="promise">
     <h2>Promise</h2>
     <el-row>
-      <el-col>
-        <el-button type="primary" @click="buttonPush">點我檢查驗證</el-button>
-        <p>{{ getText }}</p>
-      </el-col>
       <!-- age -->
       <el-col>
         <el-form>
@@ -49,7 +45,7 @@ import { Component, Vue } from "vue-property-decorator";
   components: {},
 })
 export default class PromisePage extends Vue {
-  private getText = "";
+
 
   /** Promise age*/
   private myAge: AgeType = {
@@ -85,44 +81,10 @@ export default class PromisePage extends Vue {
   //   }
   // }
 
-  /** Promise auth*/
-  private setText(text: string) {
-    this.getText = text;
-  }
 
   private user = {
     name: "Phoebe",
   };
-
-  private checkAuth = () => {
-    return new Promise((resolve, reject) => {
-      this.setText("Checking Auth...");
-      setTimeout(() => {
-        resolve(true);
-      }, 2000);
-    });
-  };
-
-  private fetchUser = () => {
-    return new Promise((resolve, reject) => {
-      this.setText("Fetching User...");
-      setTimeout(() => {
-        resolve(this.user);
-      }, 2000);
-    });
-  };
-
-  private buttonPush() {
-    this.checkAuth()
-      .then((isAuth) => {
-        if (isAuth) {
-          return this.fetchUser();
-        }
-      })
-      .then((user) => {
-        this.setText(this.user.name);
-      });
-  }
 
   /** Mom */
   private isMomHappy = false;

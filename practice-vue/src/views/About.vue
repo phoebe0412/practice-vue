@@ -1,14 +1,6 @@
 <template>
   <div class="about">
     <h2>@Watch</h2>
-    <p>
-      姓：<span><input type="text" v-model="firstName" /></span>
-    </p>
-    <p>
-      名：<span><input type="text" v-model="lastName" /></span>
-    </p>
-    <p>{{ fullName }}</p>
-    <el-divider></el-divider>
     <h2>API</h2>
     <el-menu class="el-menu-demo" mode="horizontal">
       <el-menu-item v-for="i in 5" :key="i">
@@ -28,24 +20,11 @@ import { Component, Vue, Watch } from "vue-property-decorator";
 })
 
 export default class About extends Vue {
-  @Watch("firstName")
-  private watchFirstName(val: string) {
-    this.fullName = val + " " + this.lastName;
-  }
-
-  @Watch("lastName")
-  private watchLastName(val: string) {
-    this.fullName = this.firstName + " " + val;
-  }
-
   @Watch("userId")
   private getUserId(val: number) {
     this.userInfo = this.fetchUserInfo(val);
   }
 
-  private firstName = "";
-  private lastName = "";
-  private fullName = "";
   private userInfo = {};
 
   get userId() {

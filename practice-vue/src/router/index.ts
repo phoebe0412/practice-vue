@@ -9,25 +9,25 @@ export const routes: Array<RouteConfig> = [
     name: "dashboard",
     redirect: "/Home",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/desktop/index.vue"),
+      import(/* webpackChunkName: "index" */ "../views/desktop/index.vue"),
     children: [
       {
         path: "/Home",
         name: "Home",
         component: () =>
-          import(/* webpackChunkName: "about" */ "../views/Home.vue"),
+          import(/* webpackChunkName: "Home" */ "../views/Home.vue"),
       },
       {
         path: "/About/:userId",
         name: "About",
         component: () =>
-          import(/* webpackChunkName: "about" */ "../views/About.vue"),
+          import(/* webpackChunkName: "About" */ "../views/About.vue"),
       },
       {
         path: "/PromisePage",
         name: "PromisePage",
         component: () =>
-          import(/* webpackChunkName: "about" */ "../views/PromisePage.vue"),
+          import(/* webpackChunkName: "PromisePage" */ "../views/PromisePage.vue"),
       },
     ],
   },

@@ -1,34 +1,30 @@
 <template>
   <div>
     <el-main class="home">
-      <img alt="Vue logo" src="../assets/logo.png" />
-      <HelloWorld msg="hello Phoebe" @on-click="onChildClick">
-        <template v-slot:header>
-          <h1>Here might be a page title</h1>
-        </template>
-        <template v-slot:default="{ data }">
-          <p>{{ data.fireName }}</p>
-        </template>
-        <template v-slot:footer>
-          <p>Here's some contact.</p>
-        </template>
-      </HelloWorld>
+      <child :parent-msg="message" @on-click="onChildClick" @update="selfUpdate"></child>
     </el-main>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "../components/HelloWorld.vue"; // @ is an alias to /src
+import child from "../components/Child.vue"
 
 @Component({
   components: {
-    HelloWorld,
+    child,
   },
 })
+
 export default class Home extends Vue {
   private onChildClick(val: number) {
     console.log("child", val);
+  }
+
+  private message = 'Msg of Parent!'
+
+  private selfUpdate(val:string) {
+    this.message = val
   }
 }
 </script>

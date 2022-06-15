@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>父組建傳值{{ msg }}</h1>
     <button @click="onClick">點我向父組建傳值</button>
+    <h3>{{clickCount}}</h3>
     <header>
       <slot name="header"></slot>
     </header>
