@@ -1,4 +1,29 @@
 
+.header-nav {
+  box-shadow: 0 10px 16px -16px rgb(0 0 0 / 20%);
+  line-height: 60px;
+  font-weight: 600;
+  font-size: 14px;
+  color: black;
+  }
+
+  a {
+    color: black;
+    padding-left: 20px;
+    text-decoration: none !important;
+  }
+  .router-link-active{
+    color: cadetblue;
+  }
+
+  .router-link-exact-active{
+    color: cadetblue;
+  }
+
+  .router-link-active:hover{
+    color: cadetblue;
+  }
+
 .main-container {
   display: flex;
   flex-direction: row;
@@ -7,8 +32,9 @@
     .sidebar {
       width: 200px;
       background-color: white;
-      border-radius: 10px;
+      border-right: solid 1px #e6e6e6;
       position: relative;
+      margin-top: 20px;
     }
     .main-section {
       background-color: white;
