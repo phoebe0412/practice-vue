@@ -13,14 +13,14 @@
       text-color="#fff"
       active-text-color="#ffd04b"
     >
-      <el-menu-item v-for="i in 5" :key="i">
-        <router-link :index="`${i}`" :to="`/About/${i}`">
-          users{{ i }}
-        </router-link>
-      </el-menu-item>
+      <template v-for="i in 5" >
+        <el-menu-item :key="i" :index="(i+1).toString()">
+          <router-link :to="`/About/${i}`">users{{ i }}</router-link>
+        </el-menu-item>
+      </template>
     </el-menu>
     <!-- <h3>UserID: {{ $route.params.userId }}</h3> -->
-    <!-- <pre>{{ userList }}</pre> -->
+    <pre>{{ userList }}</pre>
     <el-table stripe :data="userList" style="100%">
       <el-table-column prop="username" label="User Name" />
       <el-table-column prop="name" label="Name" />
@@ -42,18 +42,23 @@ import { Component, Vue, Watch } from "vue-property-decorator";
 })
 export default class About extends Vue {
   @Watch("userId")
-  private getUserId(val: number) {
+  private getUserId(val: number, oldValue: number) {
     this.userInfo = this.fetchUserInfo(val);
   }
+  get userId() {
+    return this.$route.params.userId;
+  }
 
+  private activeIndex = '1'
   private userInfo = {};
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private userList: any = [];
   private addressList = "";
 
+
   /** API */
   private async fetchUserInfo(id: number) {
-    return await fetch("https://jsonplaceholder.typicode.com/users/" + id)
+    return await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((response) => response.json())
       .then((data) => {
         this.userList = [data];

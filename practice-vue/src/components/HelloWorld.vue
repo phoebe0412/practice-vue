@@ -1,12 +1,8 @@
 <template>
   <div class="hello">
     <h1>父組建傳值{{ msg }}</h1>
-<<<<<<< HEAD
     <button @click="onClick">點我向父組建傳值</button>
     <h3>{{clickCount}}</h3>
-=======
-    <el-button @click="onClick">點我向父組建傳值</el-button>
->>>>>>> 7957c89608375d619c20b31759f268516941e62f
     <header>
       <slot name="header"></slot>
     </header>
